@@ -292,7 +292,7 @@ tr:last-child td {
 }
 
 /* ========== تجاوب الشاشات الصغيرة ========== */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .navbar { display: none; }
   .mobile-menu-bar { display: block; }
   .menu-btn { display: block; }
