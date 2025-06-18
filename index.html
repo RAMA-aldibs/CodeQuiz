@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>الصفحة الرئيسية - ألعاب الموقع</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- شريط التنقل العلوي للحاسب -->
+  <nav class="navbar">
+    <img src="logo.png" alt="شعار الجامعة" class="logo-navbar">
+    <a href="#" onclick="showSection('home-screen')">الرئيسية</a>
+    <a href="#" onclick="showSection('stats-screen')">الإحصائيات</a>
+    <a href="#" onclick="showSection('team-screen')">أعضاء الفريق</a>
+  </nav>
+
+  <!-- شريط القائمة للجوال -->
+  <div class="mobile-menu-bar">
+    <button class="menu-btn" onclick="toggleDropdown()">القائمة ≡</button>
+    <nav class="dropdown-menu" id="dropdownMenu">
+      <a href="#" onclick="showSection('home-screen'); hideDropdown();">الرئيسية</a>
+      <a href="#" onclick="showSection('stats-screen'); hideDropdown();">الإحصائيات</a>
+      <a href="#" onclick="showSection('team-screen'); hideDropdown();">أعضاء الفريق</a>
+    </nav>
+  </div>
+
+  <!-- الصفحة الرئيسية: قائمة الألعاب -->
+  <div id="home-screen" class="screen active">
+    <h1> قائمة الألعاب 🎮</h1>
+    <div class="games-list">
+      <div class="game-card">
+        <h2>لعبة الأسئلة</h2>
+        <p>اختبر معلوماتك في مختلف المجالات وأجب على الأسئلة بأسرع وقت ممكن!</p>
+        <button onclick="showSection('start-screen')">ابدأ لعبة الأسئلة</button>
+      </div>
+      <div class="game-card">
+        <h2>لعبة الذاكرة</h2>
+        <p>اختبر قوة ذاكرتك وحاول تذكر أماكن البطاقات المتشابهة!</p>
+        <button disabled>قريباً</button>
+      </div>
+      <div class="game-card">
+        <h2>لعبة السودوكو</h2>
+        <p>حل ألغاز السودوكو ودرّب عقلك على التفكير المنطقي!</p>
+        <button disabled>قريباً</button>
+      </div>
+      <div class="game-card">
+        <h2>لعبة الكلمات المتقاطعة</h2>
+        <p>اختبر معرفتك في اللغة العربية بحل الكلمات المتقاطعة!</p>
+        <button disabled>قريباً</button>
+      </div>
+      <div class="game-card">
+        <h2>لعبة التخمين</h2>
+        <p>حاول تخمين الكلمة الصحيحة من خلال مجموعة من التلميحات!</p>
+        <button disabled>قريباً</button>
+      </div>
+      <div class="game-card">
+        <h2>لعبة المتاهة</h2>
+        <p>حاول الخروج من المتاهة بأقل عدد من الخطوات!</p>
+        <button disabled>قريباً</button>
+      </div>
+      <div class="game-card">
+        <h2>لعبة الرياضيات السريعة</h2>
+        <p>اختبر سرعتك في حل العمليات الحسابية البسيطة!</p>
+        <button disabled>قريباً</button>
+      </div>
+      <div class="game-card">
+        <h2>لعبة ترتيب الصور</h2>
+        <p>رتب القطع لتكوين الصورة الصحيحة بأقل وقت ممكن!</p>
+        <button disabled>قريباً</button>
+      </div>
+      <div class="game-card">
+        <h2>لعبة الألغاز المنطقية</h2>
+        <p>حل ألغاز منطقية متنوعة واختبر قوة ملاحظتك!</p>
+        <button disabled>قريباً</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- شاشة البداية -->
+  <div id="start-screen" class="screen">
+    <h1> لعبة الأسئلة 🎮</h1>
+    <input type="text" id="player-name" placeholder="ادخل اسمك"><br>
+    <button onclick="startGame()">ابدأ</button>
+  </div>
+
+  <!-- شاشة الأسئلة -->
+  <div id="quiz-screen" class="screen">
+    <div class="game-stats">
+      ⏱ الوقت: <span id="timer">60</span> ثانية
+      ✅ صحيح: <span id="correct-count">0</span>
+      ❌ خطأ: <span id="wrong-count">0</span>
+    </div>
+    <div id="question-box">
+      <h2 id="question-text"></h2>
+      <div id="options-container"></div>
+    </div>
+  </div>
+
+  <!-- شاشة الإحصائيات -->
+  <div id="stats-screen" class="screen">
+    <h2> إحصائيات اللاعبين 📊</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>الاسم</th>
+          <th> صحيح ✅</th>
+          <th> خطأ ❌</th>
+        </tr>
+      </thead>
+      <tbody id="stats-table">
+        <!-- بيانات اللاعبين تضاف هنا -->
+      </tbody>
+    </table>
+    <button onclick="location.reload()">🔁 ابدأ من جديد</button>
+  </div>
+
+  <!-- شاشة أعضاء الفريق -->
+  <div id="team-screen" class="screen">
+    <h2> أعضاء الفريق المنفذ للمشروع 👥</h2>
+    <ul>
+      <li>راما الدبس</li>
+      <li>حلا حلاق</li>
+      <li>مريم حجي أحمد</li>
+      <li>رايا الخالوف</li>
+    </ul>
+  </div>
+
+  <!-- ربط ملف جافاسكريبت -->
+  <script src="script.js"></script>
+  <script>
+    // إظهار/إخفاء القائمة المنسدلة للجوال
+    function toggleDropdown() {
+      document.getElementById('dropdownMenu').classList.toggle('active');
+    }
+    function hideDropdown() {
+      document.getElementById('dropdownMenu').classList.remove('active');
+    }
+    document.addEventListener('click', function(e) {
+      var menu = document.getElementById('dropdownMenu');
+      var btn = document.querySelector('.menu-btn');
+      if (!menu.contains(e.target) && !btn.contains(e.target)) {
+        menu.classList.remove('active');
+      }
+    });
+    // إظهار القسم المطلوب وإخفاء الباقي
+    function showSection(sectionId) {
+      var screens = document.querySelectorAll('.screen');
+      screens.forEach(function(div) {
+        div.classList.remove('active');
+      });
+      document.getElementById(sectionId).classList.add('active');
+      hideDropdown();
+    }
+  </script>
+</body>
+</html>
